@@ -6,6 +6,9 @@ import { render } from 'react-dom';
 // import css
 import css from './styles/style.styl';
 
+// import components
+import Main from './components/Main';
+
 // render takes JSX and a "mounting point" => Root
-render(<p>Hi</p>, document.getElementById('root'));
+render(<Main/>, document.getElementById('root'));
 
