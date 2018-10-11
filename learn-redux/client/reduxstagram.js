@@ -8,7 +8,22 @@ import css from './styles/style.styl';
 
 // import components
 import Main from './components/Main';
+import Single from './components/Single';
+import PhotoGrid from './components/PhotoGrid';
+
+// import react router deps
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+
+// Routes the main component THEN either Index or :postID
+const router = (
+    <Router history={browserHistory}>
+        <Route path="/" component={Main}>
+            <IndexRoute component={PhotoGrid}></IndexRoute>
+            <Route path="/view/:postId" component={Single}></Route>
+        </Route>
+    </Router>
+)
 
 // render takes JSX and a "mounting point" => Root
-render(<Main/>, document.getElementById('root'));
+render(router, document.getElementById('root'));
 
